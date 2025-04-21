@@ -1,1 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>porfolio page</title>
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  html{
+ scroll-behavior: smooth;
+}
 
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+    sans-serif;
+    background-color: rgb(246, 243, 243);
+}
+
+/* Header/Navigation Styles */
+#header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #334155;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #2563eb;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #2563eb;
+  cursor: pointer;
+}
+
+/* Hero Section Styles */
+#hero-section {
+  padding: 8rem 2rem 4rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 4rem;
+}
+
+.hero-image {
+  position: relative;
+  flex: 1;
+}
+
+.profile-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 5px solid #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.profile-image-link:hover .profile-img {
+  transform: scale(1.03);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.image-hover-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*background: rgba(37, 99, 235, 0.7);*/
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: rgb(13, 138, 222);
+  font-weight: bold;
+  
+}
+
+.profile-image-link:hover .image-hover-effect {
+  opacity: 1;
+}
+
+.hero-content {
+  flex: 1.5;
+}
+
+.hero-subtitle {
+  color: #64748b;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  color: #2563eb;
+  position: relative;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: rgba(37, 99, 235, 0.2);
+  z-index: -1;
+}
+
+.typewriter {
+  height: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.type-text {
+  font-size: 1.5rem;
+  color: #2563eb;
+  font-weight: 600;
+  border-right: 2px solid #2563eb;
+  animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: #2563eb }
+}
+
+.hero-description {
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+}
+
+.btn-secondary:hover {
+  background-color: #f8fafc;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1);
+}
+
+.hero-social {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-icon {
+  color: #64748b;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #2563eb;
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero-subtitle, .hero-cta {
+    justify-content: center;
+  }
+  
+  .hero-social {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu.active {
+    display: flex;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  #hero-section {
+    padding-top: 6rem;
+  }
+}
+
+
+/*profile section */
+
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Profile Section */
+#profile-section {
+  margin-top: 100px;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+}
+
+/* Profile Header */
+#profile-section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#profile-section-header h3 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.profile-description {
+  color: #4b5563;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Bio Information */
+.profile-info {
+  margin-bottom: 2rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  background-color: #f9fafb;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  background-color: #f3f4f6;
+  transform: translateY(-2px);
+}
+
+.info-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.3rem;
+}
+
+.info-label i {
+  width: 20px;
+  color: #3b82f6;
+}
+
+.info-value {
+  font-weight: 500;
+  color: #1f2937;
+  display: block;
+}
+
+.info-value a {
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.info-value a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.available {
+  color: #10b981;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* CV Button */
+.cv-download {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.cv-btn {
+  background-color: #056bfb;
+  color: white;
+  padding: 0.9rem 2.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.cv-btn:hover {
+  background-color: #0ba2ed;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(5, 107, 251, 0.2);
+}
+
+/* Education & Experience Sections */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #056bfb;
+  margin: 3rem 0 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.education-items, .experience-items {
+  margin-left: 1.5rem;
+  padding-left: 2rem;
+  border-left: 2px solid #e5e7eb;
+  position: relative;
+}
+
+.education-item, .experience-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.education-icon, .experience-icon {
+  position: absolute;
+  left: -3.0rem;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #0bddc5;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 4px white, 0 0 0 6px #3b82f6;
+}
+
+.education-content, .experience-content {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.education-item:hover .education-content,
+.experience-item:hover .experience-content {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.education-content h3, .experience-content h3 {
+  font-size: 1.25rem;
+  color: hsl(215, 29%, 51%);
+  margin-bottom: 0.5rem;
+}
+
+.education-place, .experience-place {
+  color: #4880ef;
+  font-style: italic;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.education-place:before, .experience-place:before {
+  content: '';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  color: #125ee2;
+}
+
+.education-description, .experience-description,
+.education-skills {
+  color: #4b6350;
+  line-height: 1.7;
+  list-style: none;
+}
+.education-skills  li i ,.experience-description li i,.education-content p i {
+  color: #10b981; 
+  position: relative;
+  left: 0;
+  margin: 4px;
+  top: 0.2rem;
+  font-size: 1.1rem;
+}
+.education-skills li, .experience-description li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.education-skills li:before, .experience-description li:before {
+  content: '';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  color: #aac1e7;
+  position: absolute;
+  left: 0;
+  font-size: 0.8rem;
+  list-style: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #profile-section {
+    margin-top: 80px;
+    padding: 1.5rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .education-items, .experience-items {
+    margin-left: 0.5rem;
+    padding-left: 1.5rem;
+  }
+  
+  .education-icon, .experience-icon {
+    width: 40px;
+    height: 40px;
+    left: -2.7rem;
+    font-size: 0.9rem;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+  }
+}
+/* General Services Section */
+#services {
+  background-color: #f8fafc;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+/* Section Header */
+.services-section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1e40af;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.services-section-header i {
+  font-size: 1.8rem;
+}
+
+/* Services Grid Layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+/* Service Items */
+.service-item {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Service Headings */
+.service-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  color: #1e40af;
+}
+
+.service-heading i {
+  font-size: 1.8rem;
+}
+
+.service-heading h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* Service Features List */
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-features li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.service-features i {
+  color: #10b981;
+  margin-top: 3px;
+  font-size: 0.9rem;
+}
+  
+/* Contact Section Styles */
+#contact-section {
+  background-color: #f8fafc;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+#contact-heading h1 {
+  color: #1e40af;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+#contact-heading p {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+#contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 15px 15px 15px 45px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #1e40af;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+  padding-top: 15px;
+}
+
+.submit-btn {
+  background-color: #1e40af;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #1e3a8a;
+  transform: translateY(-2px);
+}
+
+/* CTA Section Styles */
+.cta-section {
+  background-color: #1e40af;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.cta-button {
+  background-color: white;
+  color: #1e40af;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #f1f5f9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+ /* About Section Styles */
+ .about-section {
+  background-color: #f8fafc;
+  padding: 5rem 0;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-image {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  New styles for vertical images */
+  display: flex;
+  flex-direction: column;
+  gap: 200px; /* Space between images */
+}
+
+/* Container for each image with its own overlay */
+.image-container {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* First image (original) */
+.about-image img {
+  width:450px;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+ 
+}
+
+/* Second image (added via pseudo-element) */
+.about-image::after {
+  content: "";
+  border-radius: 10px;
+  display: block;
+  background-image: url('img/profession_img.png');
+  background-size: cover;
+  background-position: center;
+  height: 370px; /* Adjust height as needed */
+  width: 100%;
+}
+
+/* Overlay for both images */
+.image-overlay {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  height: 150px;
+  right: 0;
+  border-radius: 10px;
+  background: linear-gradient(to top, rgba(37, 99, 235, 0.8), transparent);
+  padding: 0.5rem;
+  color: white;
+  text-align: center; 
+}
+
+/* Specific overlay for first image */
+.about-image > img + .image-overlay {
+  bottom: 20px; /* Adjust based on gap between images */
+}
+
+/* Specific overlay for second image */
+.about-image::after + .image-overlay {
+  bottom: 0;
+}
+
+/* Overlay content styling */
+.overlay-content i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.overlay-content h4 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-image::after {
+    height: 200px;
+  }
+  
+  .about-image {
+    gap: 15px;
+    
+  }
+  
+  .overlay-content i {
+    font-size: 1.8rem;
+  }
+  
+  .overlay-content h4 {
+    font-size: 1.1rem;
+  }
+}
+.overlay-content i {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.overlay-content h4 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.about-text {
+  padding: 0 1rem;
+}
+
+.section-title {
+  color: #1e40af;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about-text h3 {
+  font-size: 1.8rem;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+}
+
+.about-description p {
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.expertise-areas {
+  margin: 2rem 0;
+}
+
+.expertise-areas h4 {
+  color: #1e293b;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.expertise-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.expertise-list li {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #334155;
+}
+
+.expertise-list li i {
+  color: #10b981;
+  font-size: 1.1rem;
+}
+
+.personal-qualities {
+  margin-top: 3rem;
+}
+
+.personal-qualities h4 {
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.qualities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.quality-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.quality-item:hover {
+  transform: translateY(-5px);
+}
+
+.quality-item i {
+  color: #2563eb;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.quality-item h5 {
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.quality-item p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-image {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .expertise-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .qualities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-section {
+    padding: 3rem 0;
+  }
+}
+
+/* Footer Bottom Styles */
+.footer-bottom {
+  background-color: #0f172a;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-links a {
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #60a5fa;
+  transform: translateY(-3px);
+}
+
+
+/*::::::::::::::Script.js start:::::::::::::*/
+.form-alert {
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.close-alert {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: inherit;
+  padding: 0;
+  margin-left: 15px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/*::::::::::::::Script.js End:::::::::::::*/
+</style>
+<!-- Google Fonts (optional) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+  <section id="index">
+    <!-- Header/Navigation -->
+    <header id="header">
+      <nav class="navbar">
+        <div class="nav-container">
+          <a class="logo" href="#index">
+            <img src="img/autovision_logo-removebg-preview.png" alt="AutoVision Logo">
+          </a>
+  
+          <!-- Mobile Menu Toggle -->
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+  
+          <!-- Navigation Menu -->
+          <ul class="menu">
+            <li><a href="#index" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#profile" class="nav-link"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="#services" class="nav-link"><i class="fas fa-cogs"></i> Services</a></li>
+            <li><a href="#contact-section" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  
+    <!-- Hero Section -->
+    <section id="hero-section">
+      <div class="hero-container">
+        <div class="hero-image">
+          <a href="#profile" class="profile-image-link">
+            <img src="img/Passport2025-removebg-preview-modified.png" alt="Steven Villier - Automation Specialist" class="profile-img">
+            <div class="image-hover-effect">
+             <!-- <span>View Profile</span>-->
+            </div>
+          </a>
+        </div>
+  
+        <div class="hero-content">
+          <h3 class="hero-subtitle"><i class="fas fa-hand-paper"></i> Hi, Are you looking for an Automation Specialist?</h3>
+          <h1 class="hero-title">I'm <span class="highlight">Steven Villier</span></h1>
+          
+          <div class="typewriter">
+            <span class="type-text">Industrial Automation Specialist</span>
+          </div>
+          
+          <p class="hero-description">
+            A dedicated professional streamlining processes and integrating smart technologies into modern industries. 
+            With expertise in PLC programming, SCADA systems, robotics, and IoT solutions, I design and implement 
+            automation systems that enhance efficiency, reliability, and productivity.
+          </p>
+          
+          <div class="hero-cta">
+            <a href="#contact-section" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i> Contact me
+            </a>
+            <a href="#services" class="btn btn-secondary">
+              <i class="fas fa-cogs"></i> My Services
+            </a>
+          </div>
+          
+          <div class="hero-social">
+            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+    <!-- Profile Section -->
+<section id="profile">
+  <div class="profile-page">
+    <div class="container">
+      <section id="profile-section">
+        <!-- Profile Header -->
+        <section id="profile-section-header">
+          <h3><i class="fas fa-cogs"></i> Industrial Automation & Control Specialist</h3>
+          <p class="profile-description">
+            With expertise in PLC programming, SCADA systems, robotics, and IoT solutions, I help companies implement
+            automation systems that enhance efficiency, reliability, and productivity.
+          </p>
+        </section>
+
+        <!-- Bio Information -->
+        <section class="profile-section-bio">
+          <div class="profile-info">
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="info-label"><i class="fas fa-user"></i> Name:</span>
+                <span class="info-value">Steven Villier</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label"><i class="fas fa-birthday-cake"></i> Birthday:</span>
+                <span class="info-value">7 December 1986</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label"><i class="fas fa-graduation-cap"></i> Degree:</span>
+                <span class="info-value">Diploma in Electronics</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label"><i class="fas fa-briefcase"></i> Experience:</span>
+                <span class="info-value">10+ Years</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label"><i class="fas fa-phone"></i> Phone:</span>
+                <span class="info-value"><a href="tel:+254729704171">+254 729 704171</a></span>
+              </div>
+              <div class="info-item">
+                <span class="info-label"><i class="fas fa-envelope"></i> Email:</span>
+                <span class="info-value"><a href="mailto:villiermarko@gmail.com">villiermarko@gmail.com</a></span>
+              </div>
+              <div class="info-item freelance">
+                <span class="info-label"><i class="fas fa-user-tie"></i> Freelance:</span>
+                <span class="info-value available"><i class="fas fa-check-circle"></i> Available</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="cv-download">
+            <a href="downloads/VILLIER_CURRICULUM_VITAE_23012025.pdf" class="cv-btn">
+              <i class="fas fa-download"></i> Download CV
+            </a>
+          </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="profile-section-education">
+          <h2 class="section-title"><i class="fas fa-graduation-cap"></i> My Education</h2>
+          <div class="education-items">
+            <div class="education-item">
+              <div class="education-icon">
+                <i class="fas fa-university"></i>
+              </div>
+              <div class="education-content">
+                <h3>Diploma In Electronics Engineering</h3>
+                <p class="education-place">The Kitale National Polytechnic | 2009 - 2011</p>
+                <p class="education-description"><i class="fas fa-graduation-cap"></i>Specialized in Electronics Engineering, industrial control systems and automation technologies</p>
+              </div>
+            </div>
+
+            <div class="education-item">
+              <div class="education-icon">
+                <i class="fas fa-certificate"></i>
+              </div>
+              <div class="education-content">
+                <h3>PLC Programming Certification</h3>
+                <p class="education-place">Centurion Systems Ltd | 2013</p>
+                <ul class="education-skills">
+                  <li><i class="fas fa-check"></i> Siemens PLC service and Maintenance</li>
+                  <li><i class="fas fa-check"></i> Siemens Simatic manager programming</li>
+                  <li><i class="fas fa-check"></i> Siemens Simotion and Sinamics Configuration</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="profile-section-experience">
+          <h2 class="section-title"><i class="fas fa-briefcase"></i> My Experience</h2>
+          <div class="experience-items">
+            <div class="experience-item">
+              <div class="experience-icon">
+                <i class="fas fa-industry"></i>
+              </div>
+              <div class="experience-content">
+                <h3>Automation Technician</h3>
+                <p class="experience-place">BIDCO AFRICA LTD | 2013 - 2017</p>
+                <ul class="experience-description">
+                  <li><i class="fas fa-check-circle"></i>Maintained edible oil manufacturing equipment</li>
+                  <li><i class="fas fa-check-circle"></i>Implemented preventive maintenance programs</li>
+                  <li><i class="fas fa-check-circle"></i>troubleshooting electrical and other production related machines breakdowns</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="experience-item">
+              <div class="experience-icon">
+                <i class="fas fa-smoking"></i>
+              </div>
+              <div class="experience-content">
+                <h3>Automation Technician</h3>
+                <p class="experience-place">BAT Kenya PLC | 2017 - 2025</p>
+                <ul class="experience-description">
+                  <li><i class="fas fa-pen"></i>Maintained cigarette manufacturing machinery</li>
+                  <li><i class="fas fa-pen"></i>Optimized PLC programs for production efficiency</li>
+                  <li><i class="fas fa-pen"></i>Led automation upgrade projects</li>
+                  <li><i class="fas fa-pen"></i>planning and execution of various maintenance task such as AM, PM,BDE </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="experience-item">
+              <div class="experience-icon">
+                <i class="fas fa-headset"></i>
+              </div>
+              <div class="experience-content">
+                <h3>Technical Support & Consultant</h3>
+                <p class="experience-place">International Tobacco Equipments Ltd | 2025 - Present</p>
+                <ul class="experience-description">
+                  <li><i class="fas fa-star"></i>Installation and commissioning of cigarette making machines</li>
+                  <li><i class="fas fa-star"></i>Technical troubleshooting and operational support</li>
+                  <li><i class="fas fa-star"></i> planning and execution of maintenance  task such as AM, PM,BDE</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </div>
+</section>
+                
+                
+                <!--profile section end-->
+
+  <!--***************************services section start***************************************************-->
+  <section id="services" class="services">
+    <div id="services-section">
+      <h2 class="services-section-header">
+        <i class="fas fa-cogs"></i> My Services
+      </h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="service-heading">
+          <i class="fas fa-robot"></i>
+          <h2>Automation services</h2>
+        </div>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Siemens PLC service and Maintenance</li>
+          <li><i class="fas fa-check"></i> Siemens Simatic manager programming</li>
+          <li><i class="fas fa-check"></i> Siemens Simotion and Sinamics Configuration</li>
+          <li><i class="fas fa-check"></i>  System migration to newer platforms</li>
+           <li><i class="fas fa-check"></i> HMI integration (WinCC, TP/OP panels)</li>
+           <li><i class="fas fa-check"></i> Machine Automation & Retrofitting</li>
+           
+        </ul>
+      </div>
+   
+      <div class="service-item">
+        <div class="service-heading">
+          <i class="fas fa-cogs"></i>
+          <h2>Engineering services</h2>
+        </div>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Preventive maintenance programs</li>
+          <li><i class="fas fa-check"></i> Emergency repair services</li>
+          <li><i class="fas fa-check"></i> Hardware diagnostics and replacement</li>
+          <li><i class="fas fa-check"></i> Firmware updates and optimization and I/O testing and calibration</li>
+          <li><i class="fas fa-check"></i>Remote Monitoring & Diagnostics</li>
+          <li><i class="fas fa-check"></i>  Energy Efficiency Improvements</li>
+          
+        
+
+          
+        </ul>
+      </div>
+      
+      <div class="service-item">
+        <div class="service-heading">
+          <i class="fas fa-tools"></i>
+          <h2>Spare part services</h2>
+        </div>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i>PLCs & I/O Modules (S7-300, S7-400, S7-1200, S7-1500, ET200)</li>
+          <li><i class="fas fa-check"></i> Power Supplies</li>
+          <li><i class="fas fa-check"></i>  Communication Modules</li>
+          <li><i class="fas fa-check"></i>  Circuit Breakers & Fuses</li>
+          <li><i class="fas fa-check"></i>  OEM & Aftermarket Parts Sourcing</li>
+          <li><i class="fas fa-check"></i>  Preventive Maintenance Kits</li>
+          <li><i class="fas fa-check"></i> Warranty & Technical Support</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+ <!--***************************services section end***************************************************-->
+          
+
+      <!--***************************Contact section start***************************************************-->
+      <section id="contact-section">
+        <div id="contact-heading">
+          <h1><i class="fas fa-envelope"></i> Contact Me</h1>
+          <p>Get in touch for automation solutions</p>
+        </div>
+        
+        <form id="contact-form" action="submit-form" method="POST">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Enter your name" required>
+            <i class="fas fa-user"></i>
+          </div>
+          
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <i class="fas fa-envelope"></i>
+          </div>
+          
+          <div class="form-group">
+            <textarea name="message" placeholder="Type your message here..." required></textarea>
+            <i class="fas fa-comment-dots"></i>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Send Now
+          </button>
+        </form>
+      </section>
+      <div id="form-alert" class="form-alert" style="display: none;">
+        <span id="alert-message">Thank you for your message! I will get back to you soon</span>
+        <button class="close-alert" onclick="closeAlert()">&times;</button>
+      </div>
+      <!-- About Section -->
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-image">
+        <img src="img/automation-engineering.jpg" alt="Steven Villier working on industrial automation">
+        <div class="image-overlay">
+          <div class="overlay-content">
+            <i class="fas fa-cogs"></i>
+            <h4>10+ Years Experience</h4>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-text">
+        <h2 class="section-title"><i class="fas fa-user-tie"></i> About Me</h2>
+        
+        <h3>Industrial Automation Specialist Based in Kenya</h3>
+        
+        <div class="about-description">
+          <p>I'm Steven Villier, a certified automation professional with a decade of experience in designing, implementing, and maintaining industrial control systems. My journey in automation began with my electronics engineering diploma and has evolved through hands-on experience across multiple industries.</p>
+          
+          <p>What sets me apart is my comprehensive understanding of both the technical and operational aspects of industrial automation. I bridge the gap between engineering teams and production staff to create solutions that truly enhance manufacturing efficiency.</p>
+          
+          <div class="expertise-areas">
+            <h4>Core Expertise:</h4>
+            <ul class="expertise-list">
+              <li><i class="fas fa-check-circle"></i> PLC Programming (Siemens, Allen-Bradley)</li>
+              <li><i class="fas fa-check-circle"></i> SCADA System Implementation</li>
+              <li><i class="fas fa-check-circle"></i> Industrial Robotics Integration</li>
+              <li><i class="fas fa-check-circle"></i> processes Optimization</li>
+              <li><i class="fas fa-check-circle"></i> Predictive Maintenance Systems</li>
+              <li><i class="fas fa-check-circle"></i> Machines & Industry Automations  </li>
+            </ul>
+          </div>
+          
+          <div class="personal-qualities">
+            <h4>Professional Approach:</h4>
+            <div class="qualities-grid">
+              <div class="quality-item">
+                <i class="fas fa-lightbulb"></i>
+                <h5>Innovative Solutions</h5>
+                <p>Developing custom automation strategies tailored to each client's needs</p>
+              </div>
+              <div class="quality-item">
+                <i class="fas fa-clock"></i>
+                <h5>Efficiency Focus</h5>
+                <p>Maximizing productivity while minimizing downtime</p>
+              </div>
+              <div class="quality-item">
+                <i class="fas fa-chart-line"></i>
+                <h5>Performance Driven</h5>
+                <p>Continuously monitoring and improving system performance</p>
+              </div>
+              <div class="quality-item">
+                <i class="fas fa-handshake"></i>
+                <h5>Client Collaboration</h5>
+                <p>Working closely with teams to ensure smooth implementation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+      <footer>
+        <section class="cta-section">
+          <div class="container">
+            <h2><i class="fas fa-rocket"></i> Ready for Your Next Automation Project?</h2>
+            <p>Join thousands of satisfied customers using our industrial solutions</p>
+            <a href="#contact-section" class="cta-button">Get Started Today</a>
+          </div>
+        </section>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2023 Automation Services. All rights reserved.</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/villier-steven-18597796/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Vitronics" target="_blank"><i class="fab fa-github"></i></a>
+           <!---- <a href="#"><i class="fab fa-twitter"></i></a>-->
+            <a href="https://www.youtube.com/@vitronicstech2633" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://web.facebook.com/Vitronicstechnologies/" target="_blank"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+      </footer>
+
+      <script>
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+          document.querySelector('.menu').classList.toggle('active');
+        });
+      </script>
+      <script href="script.js"></script>
+</body>
+</html>
