@@ -662,6 +662,54 @@ body{
   max-width: 600px;
   margin: 0 auto;
 }
+.contact-main{
+  max-width: 900px;
+  padding: 30px;
+  margin: 20px auto;
+  border: none;
+  box-shadow: 0 2px 4px rgba(223, 17, 17, 0.05);
+  background: #ffffff;
+  border-radius: 10px;
+  margin-top: 30px;
+  height: 400px;
+}
+.contact-container{
+  width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: none;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */
+  border-radius: 10px;
+  margin-top: 40px;
+ align-items: center;
+  height: 200px;
+  background: #ffffff;
+  text-align: center;
+
+}
+.contact-container a img{
+  width: 70px; 
+  height: 70px;
+  border-radius: 50px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+
+}
+.contact-container a img:hover{
+  transform: translateY(-5px);
+
+  transition:transform  0.3s ease-in-out;
+}
+ .thanks{
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #0aba80;
+  margin: 20px;
+}
+.contact-container h1 {
+  text-align: center;
+}
 
 .form-group {
   position: relative;

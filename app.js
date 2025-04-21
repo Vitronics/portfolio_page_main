@@ -47,20 +47,23 @@ app.post('/submit-form', (req, res) => {
   // Send email
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.error('Error sending email:', error);
-      return res.status(500).json({ 
-        success: false, 
-        message: 'Error sending your message. Please try again later.' 
-      });
+      // console.error('Error sending email:', error);
+      // return res.status(500).json({ 
+        // success: false, 
+        // message: 'Error sending your message. Please try again later.' 
+        res.sendFile(path.join(__dirname, '404.html'));
+    
+     
     }
     
-    console.log('Email sent:', info.response);
-    res.json({ 
-      success: true, 
-      message: 'Thank you for your message! I will get back to you soon.' 
+    // console.log('Email sent:', info.response);
+    // res.json({ 
+    //   success: true, 
+    //   message: 'Thank you for your message! I will get back to you soon.' 
+    res.sendFile(path.join(__dirname, 'contact.html'));
     });
   });
-});
+
 
 // Serve HTML file (adjust as needed)
 app.get('/', (req, res) => {
