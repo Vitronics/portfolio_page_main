@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('copy').textContent = new Date().getFullYear();
     const contactForm = document.getElementById('contact-form');
+    
+
     
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
