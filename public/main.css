@@ -697,9 +697,19 @@ body{
 }
 .contact-container a img:hover{
   transform: translateY(-5px);
-
   transition:transform  0.3s ease-in-out;
 }
+
+.icon img {
+  animation: pulse 0.5s infinite;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
  .thanks{
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -710,6 +720,7 @@ body{
 .contact-container h1 {
   text-align: center;
 }
+
 
 .form-group {
   position: relative;
