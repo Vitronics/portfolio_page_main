@@ -1,10 +1,10 @@
 {
     "version":2,
-    "builds": [{ "src": "/api/submit-form.js","use":"@vercel/node"}],
+    "builds": [{ "src": "app.js","use":"@vercel/node"}],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/api/submit-form.js"
+        "dest": "app.js"
       }
     ]
   }
