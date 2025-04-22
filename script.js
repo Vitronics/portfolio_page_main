@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Send data to server
-        fetch('/api/submit-form', {
+        fetch('/api/submit', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
