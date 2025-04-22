@@ -11,9 +11,10 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/'))); // Serve static files
 
 // Environment variables (use dotenv in production)
+const isVercel = process.env.VERCEL_ENV === 'production';
 const PORT = process.env.PORT || 3000;
-const EMAIL_USER = process.env.EMAIL_USER ;
-const EMAIL_PASS = process.env.EMAIL_PASS ;
+//const EMAIL_USER = process.env.EMAIL_USER ;
+// const EMAIL_PASS = process.env.EMAIL_PASS ;
 
 // Email transporter configuration
 const transporter = nodemailer.createTransport({
@@ -25,13 +26,16 @@ const transporter = nodemailer.createTransport({
   });
 
 // Route to handle form submission
-app.post('/api/submit', (req, res) => {
+app.post('/submit', (req, res) => {
   const { name, email, message } = req.body;
 
   // Email options
   const mailOptions = {
-    from: EMAIL_USER,
-    to: EMAIL_USER, // Send to yourself
+    // from: EMAIL_USER,
+    // to: EMAIL_USER, // Send to yourself
+    // replyTo: email,
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER,
     replyTo: email,
     subject: `New Contact Form Submission from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
@@ -47,30 +51,43 @@ app.post('/api/submit', (req, res) => {
   // Send email
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      // console.error('Error sending email:', error);
-      // return res.status(500).json({ 
-        // success: false, 
-        // message: 'Error sending your message. Please try again later.' 
-        res.sendFile(path.join(__dirname, '404.html'));
+    //   // console.error('Error sending email:', error);
+    //   // return res.status(500).json({ 
+    //     // success: false, 
+    //     // message: 'Error sending your message. Please try again later.' 
+    //     res.sendFile(path.join(__dirname, '404.html'));
     
      
-    }
+    // }
     
-    // console.log('Email sent:', info.response);
-    // res.json({ 
-    //   success: true, 
-    //   message: 'Thank you for your message! I will get back to you soon.' 
-    res.sendFile(path.join(__dirname, 'contact.html'));
+    // // console.log('Email sent:', info.response);
+    // // res.json({ 
+    // //   success: true, 
+    // //   message: 'Thank you for your message! I will get back to you soon.' 
+    // res.sendFile(path.join(__dirname, 'contact.html'));
+    console.error('Error:', error);
+      return res.redirect(303, '/404.html');
+    }
+    return res.redirect(303, '/contact.html');
     });
   });
 
 
 // Serve HTML file (adjust as needed)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+   res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  // res.sendFile(path.join(__dirname,  'index.html'));
 });
 
+// Vercel compatibility
+if (isVercel) {
+  module.exports = app;
+} else {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
 // Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });

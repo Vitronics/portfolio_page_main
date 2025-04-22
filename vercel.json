@@ -1,3 +1,9 @@
 {
-  "rewrites": [{ "source": "/submit", "destination": "/api/submit" }]
+  "builds": [{
+    "src": "app.js",
+    "use": "@vercel/node"
+  }],
+  "routes": [
+    { "src": "/submit", "methods": ["POST"], "dest": "app.js" }
+  ]
 }
