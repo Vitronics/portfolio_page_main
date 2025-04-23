@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     if (contactForm) {
-      contactForm.addEventListener('/submit', function(e) {
+      contactForm.addEventListener('/api/submit', function(e) {
         e.preventDefault();
         
         // Get form data
