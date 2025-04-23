@@ -43,7 +43,7 @@ if (isVercel) {
 }
 
 // Route to handle form submission
-app.post('/api/submit', (req, res) => {
+app.post('/submit', (req, res) => {
   const { name, email, message } = req.body;
 
   // Email options
