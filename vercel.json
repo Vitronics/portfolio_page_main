@@ -4,6 +4,6 @@
     "use": "@vercel/node"
   }],
   "routes": [
-    { "src": "app.js", "methods": ["POST"], "dest": "app.js" }
+    { "src": "/(.*)", "methods": ["POST"], "dest": "/" }
   ]
 }
