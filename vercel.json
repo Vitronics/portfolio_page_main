@@ -4,6 +4,6 @@
     "use": "@vercel/node"
   }],
   "routes": [
-    { "src": "/api/submit-form", "methods": ["POST"], "dest": "app.js" }
+    { "src": "app.js", "methods": ["POST"], "dest": "app.js" }
   ]
 }
