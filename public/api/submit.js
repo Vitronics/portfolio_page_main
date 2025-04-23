@@ -29,14 +29,19 @@ export default async function handler(req, res) {
     `
   };
 
-  try {
-    await transporter.sendMail(mailOptions);
-    // return res.status(200).json({ success: true, message: 'Thank you for your message!' });
-    console.error('Error:', error);
-    return res.redirect(303, '/public/contact.html');
-  } catch (error) {
-    // return res.status(500).json({ success: false, message: 'Email failed to send.' });
-    return res.redirect(303, '/public/404.html');
+  // try {
+  //   await transporter.sendMail(mailOptions);
+  //   // return res.status(200).json({ success: true, message: 'Thank you for your message!' });
+  //   console.error('Error:', error);
+  //   return res.redirect(303, '/public/contact.html');
+  // } catch (error) {
+  //   // return res.status(500).json({ success: false, message: 'Email failed to send.' });
+  //   return res.redirect(303, '/public/404.html');
       
-  }
+  // }
+
+  console.error('Error:', error);
+  return res.redirect(303, '/public/404.html');
 }
+return res.redirect(303, '/public/contact.html');
+
