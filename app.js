@@ -26,7 +26,7 @@ const transporter = nodemailer.createTransport({
   });
 
 // Route to handle form submission
-app.post('/submit', (req, res) => {
+app.post('/api/submit', (req, res) => {
   const { name, email, message } = req.body;
 
   // Email options
@@ -66,9 +66,9 @@ app.post('/submit', (req, res) => {
     // //   message: 'Thank you for your message! I will get back to you soon.' 
     // res.sendFile(path.join(__dirname, 'contact.html'));
     console.error('Error:', error);
-      return res.redirect(303, '/404.html');
+      return res.redirect(303, '/public/404.html');
     }
-    return res.redirect(303, '/contact.html');
+    return res.redirect(303, '/public/contact.html');
     });
   });
 
