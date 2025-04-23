@@ -29,7 +29,7 @@ const transporter = nodemailer.createTransport({
 
   // Serve HTML file (adjust as needed)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'contact.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
  // res.sendFile(path.join(__dirname,  'index.html'));
 });
 
