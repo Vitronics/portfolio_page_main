@@ -2,7 +2,7 @@
   "name": "portfolio-page",
   "version": "1.0.0",
   "main": "app.js",
- "scripts": {
+  "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
@@ -11,11 +11,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@vercel/node": "^4.0.0",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "mysql": "^2.18.1",
-    "nodemailer": "^6.10.1"
+    "nodemailer": "^6.10.1",
+    "vercel": "^41.0.2"
   }
 }
