@@ -25,7 +25,7 @@ const transporter = nodemailer.createTransport({
   });
 
 // Route to handle form submission
-app.post('/api/submit-form', (req, res) => {
+app.post('/api/submit', (req, res) => {
   const { name, email, message } = req.body;
 
   // Email options
