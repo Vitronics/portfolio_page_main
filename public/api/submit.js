@@ -2,8 +2,9 @@ import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, message: 'Method Not Allowed' });
-  }
+  //   return res.status(405).json({ success: false, message: 'Method Not Allowed' });
+  return res.redirect(303, '/404.html');
+   }
 
   const { name, email, message } = req.body;
 
@@ -40,8 +41,14 @@ export default async function handler(req, res) {
       
   // }
 
-  console.error('Error:', error);
-  return res.redirect(303, '/404.html');
+  try {
+    await transporter.sendMail(mailOptions);
+    return res.redirect(303, '/contact.html'); // Success redirect
+  } catch (error) {
+    console.error('Error:', error);
+    return res.redirect(303, '/404.html'); // Error redirect
+  }
 }
-return res.redirect(303, '/contact.html');
+
+
 
