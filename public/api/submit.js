@@ -41,7 +41,7 @@ export default async function handler(req, res) {
   // }
 
   console.error('Error:', error);
-  return res.redirect(303, '/public/404.html');
+  return res.redirect(303, '/404.html');
 }
-return res.redirect(303, '/public/contact.html');
+return res.redirect(303, '/contact.html');
 
