@@ -25,8 +25,25 @@ const transporter = nodemailer.createTransport({
     }
   });
 
+
+
+  // Serve HTML file (adjust as needed)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+ // res.sendFile(path.join(__dirname,  'index.html'));
+});
+
+// Vercel compatibility
+if (isVercel) {
+ module.exports = app;
+} else {
+ app.listen(PORT, () => {
+   console.log(`Server running on port ${PORT}`);
+ });
+}
+
 // Route to handle form submission
-app.post('/api/submit-form', (req, res) => {
+app.post('/submit', (req, res) => {
   const { name, email, message } = req.body;
 
   // Email options
@@ -73,20 +90,7 @@ app.post('/api/submit-form', (req, res) => {
   });
 
 
-// Serve HTML file (adjust as needed)
-app.get('/', (req, res) => {
-   res.sendFile(path.join(__dirname, 'public', 'index.html'));
-  // res.sendFile(path.join(__dirname,  'index.html'));
-});
 
-// Vercel compatibility
-if (isVercel) {
-  module.exports = app;
-} else {
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-}
 // Start server
 // app.listen(PORT, () => {
 //   console.log(`Server running on port ${PORT}`);
