@@ -36,7 +36,7 @@ export default async function handler(req, res) {
     return res.redirect(303, '/public/404.html');
   } catch (error) {
     // return res.status(500).json({ success: false, message: 'Email failed to send.' });
-    console.error('Error:', error);
+   
       return res.redirect(303, '/public/contact.html');
   }
 }
