@@ -700,7 +700,7 @@ body{
   transition:transform  0.3s ease-in-out;
 }
 
-.icon img {
+.icon {
   animation: pulse 0.5s infinite;
 }
 
