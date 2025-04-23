@@ -1,9 +1,15 @@
 {
-  "builds": [{
-    "src": "app.js",
-    "use": "@vercel/node"
-  }],
+  "version": 2,
   "routes": [
-    { "src": "/(.*)", "methods": ["POST"], "dest": "/" }
+    {
+      "src": "/submit",
+      "methods": ["POST"],
+      "dest": "/api/submit"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1",
+      "methods": ["GET"]
+    }
   ]
 }
