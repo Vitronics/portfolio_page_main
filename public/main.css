@@ -219,16 +219,65 @@ body{
   box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1);
 }
 
-.hero-social {
+/* .hero-social {
   display: flex;
   gap: 1.5rem;
 }
+
+.hero-social a {
+  display: flex;
+  gap: 1.5rem;
+} */
+
+.hero-social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hero-social a {
+  color: white;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.hero-social a:nth-child(1) {
+  color: #2563eb;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+.hero-social a:nth-child(2) {
+  color:  #64748b;
+  font-size:2rem;
+  transition: all 0.3s ease;
+}
+.hero-social a:nth-child(3) {
+  color: rgb(243, 32, 9);
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+.hero-social a:nth-child(4) {
+  color: #2563eb;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+
+
+
+
+.hero-social a:hover {
+  
+  transform: translateY(-3px);
+}
+
 
 .social-icon {
   color: #64748b;
   font-size: 1.5rem;
   transition: all 0.3s ease;
 }
+
+
 
 .social-icon:hover {
   color: #2563eb;
@@ -1078,12 +1127,39 @@ textarea {
 
 .social-links a {
   color: white;
-  font-size: 1.5rem;
+  font-size:2rem;
   transition: all 0.3s ease;
 }
 
+.social-links a:nth-child(1) {
+  color: #2563eb;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+.social-links a:nth-child(2) {
+  color:  #64748b;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+.social-links a:nth-child(3) {
+  color: rgb(243, 32, 9);
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+.social-links a:nth-child(4) {
+  color: #2563eb;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+
+
+.social-links a {
+
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
 .social-links a:hover {
-  color: #60a5fa;
+  
   transform: translateY(-3px);
 }
 
