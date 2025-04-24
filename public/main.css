@@ -313,6 +313,10 @@ body{
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   }
   
+ /* .contact-main{
+ flex-wrap: wrap;
+    flex-direction: column;
+ } */
   .menu.active {
     display: flex;
   }
@@ -712,7 +716,7 @@ body{
   margin: 0 auto;
 }
 .contact-main{
-  max-width: 900px;
+  max-width: 800px;
   padding: 30px;
   margin: 20px auto;
   border: none;
@@ -768,6 +772,26 @@ body{
 }
 .contact-container h1 {
   text-align: center;
+}
+/* For small devices */
+@media (max-width: 600px) {
+  .contact-container {
+    max-width: 400px;
+    
+      padding: 1rem;
+  }
+
+  h1 {
+      font-size: 1.25rem;
+  }
+
+  p {
+      font-size: 0.95rem;
+  }
+
+  a img {
+      width: 35px;
+  }
 }
 
 
@@ -969,6 +993,8 @@ textarea {
     font-size: 1.1rem;
   }
 }
+ 
+
 .overlay-content i {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
