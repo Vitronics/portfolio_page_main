@@ -15,9 +15,10 @@ export default async function handler(req, res) {
       pass: process.env.EMAIL_PASS
     }
   });
-  await transporter.sendMail({
-    from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
-    to: process.env.PERSONAL_EMAIL,
+
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER,
     replyTo: email,
     subject: `New Contact Form Submission from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
@@ -27,7 +28,7 @@ export default async function handler(req, res) {
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Message:</strong><br>${message.replace(/\n/g, '<br>')}</p>
     `
-  });
+  };
 
   // try {
   //   await transporter.sendMail(mailOptions);
